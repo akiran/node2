@@ -23,10 +23,9 @@ gulp.task('images', function () {
 });
 
 gulp.task('styl', function () {
-  return  gulp.src(['client/css/**/*.{styl}'])
-              .pipe(stylus({ includePaths : ['node_modules'], errLogToConsole: true}))
-              .pipe(autoprefixer({
-                browsers: ['last 2 versions', 'ie 10']
+  return  gulp.src(['client/css/**/*.styl'])
+              .pipe(stylus({
+                use: [autoprefixer({browsers: ['last 2 versions', 'ie 10']})]
               }))
               .pipe(gulp.dest('build/css'));
 });
